@@ -26,7 +26,5 @@ titanic$Deck <- substr(titanic$Cabin, 1, 1)
 titanic$Side[titanic$Cabin == ""] <- NA
 titanic$Deck[titanic$Cabin == ""] <- NA
 
-# Entferne die gewünschten Variablen
-titanic <- subset(titanic, select = -c(PassengerID, Name, Ticket, Cabin))
-
-
+# Entferne die gewünschten Variablen 
+titanic <- subset(titanic, select = -c(Name, Ticket, Cabin))
