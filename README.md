@@ -1,7 +1,18 @@
 # Jack-Rose
 
-This repository hosts stupid thing from our studies:
+This repository hosts an university assignment meant to familiarize students
+with the version control tool Git.
 
-- Titanic dataset
+The assignment consists of processing and analyzing the famous **Titanic** 
+dataset using R.
+There are 3 major blocks to the assignment manifesting in 2 scripts:
+- "preprocess_data.R" - cleans the data, conducts feature encoding and engineering
+- "analyze_data.R" - analyzes the data, visualizes results
 
-$\alpha = \{(x,y) | \pi\}$
+and 2 modules consisting of functions used by the scripts:
+- "analyis.R" - analysis and visualization functions
+- "utils.R" - various miscellaneous functions 
+
+Although not required, an additional "main.R" was created to pipeline the 
+entire procedure from retrieving the data, processing and analyzing it, and
+visualizing the results for convenience.
