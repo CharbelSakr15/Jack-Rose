@@ -179,3 +179,115 @@ point_biserial_correlation = function(x, y, bias = TRUE) {
 
     return(rpb)
 }
+
+# Task 2.a.v:
+# This function creates a suitable visualization of three or four categorical
+# variables.
+
+# Parameters:
+#   df: data frame
+#      The data frame containing the variables to be visualized
+#   x: factor
+#      The first categorical variable
+#   y: factor
+#      The second categorical variable
+#   z: factor
+#      The third categorical variable
+#   w: factor
+#      The fourth categorical variable
+
+# Returns:
+#   A ggplot object containing the visualization
+visualize_categoricals = function(df, x, y, z = NULL, w = NULL) {
+    # Sanity checks
+    is_factor(x)
+    is_factor(y)
+    if (!is.null(z)) {
+        is_factor(z)
+    }
+    if (!is.null(w)) {
+        is_factor(w)
+    }
+
+    # Create the visualization
+    if (is.null(z) && is.null(w)) {
+        plot = ggplot(df, aes(x = x, fill = y)) +
+               geom_bar(position = "dodge") +
+               labs(title = "Bar plot of " ~ x ~ " and " ~ y,
+                    x = x, y = "Count") +
+               theme_minimal()
+    } else if (!is.null(z) && is.null(w)) {
+        plot = ggplot(df, aes(x = x, fill = y)) +
+               geom_bar(position = "dodge") +
+               facet_wrap(~ z) +
+               labs(title = "Bar plot of " ~ x ~ " and " ~ y,
+                    x = x, y = "Count") +
+               theme_minimal()
+    } else if (!is.null(z) && !is.null(w)) {
+        plot = ggplot(df, aes(x = x, fill = y)) +
+               geom_bar(position = "dodge") +
+               facet_grid(z ~ w) +
+               labs(title = "Bar plot of " ~ x ~ " and " ~ y,
+                    x = x, y = "Count") +
+               theme_minimal()
+    }
+
+    return(plot)
+}
+
+# Task 2.a.vi:
+# further functions suitable for description and visualization
+
+# This function computes the correlation matrix for a data frame
+correlation_matrix = function(df) {
+    # Check if df is a data frame
+    if (!is.data.frame(df)) {
+        stop("The input must be a data frame")
+    }
+    # Check if df contains any numerical variables
+    if (length(Filter(is.numeric, df)) == 0) {
+        stop("The data frame does not contain any numerical variables")
+    }
+
+    # Select only the numerical variables
+    num_vars = Filter(is.numeric, df)
+    
+    # Compute the correlation matrix
+    cor_matrix = cor(num_vars, use = "pairwise.complete.obs")
+    return(cor_matrix)
+}
+
+# This function creates a scatter plot matrix for a data frame
+scatter_plot_matrix = function(df) {
+    # Check if df is a data frame
+    if (!is.data.frame(df)) {
+        stop("The input must be a data frame")
+    }
+    # Check if df contains any numerical variables
+    if (length(Filter(is.numeric, df)) == 0) {
+        stop("The data frame does not contain any numerical variables")
+    }
+
+    # Select only the numerical variables
+    num_vars = Filter(is.numeric, df)
+    
+    # Create the scatter plot matrix
+    plot = ggpairs(df, columns = num_vars)
+    return(plot)
+}
+
+# This function creates a box plot for a numerical variable, grouped by a
+# categorical variable
+box_plot = function(df, x, y) {
+    # Sanity checks
+    is_factor(y)
+    is_numeric(x)
+
+    # Create the box plot
+    plot = ggplot(df, aes(x = y, y = x)) +
+           geom_boxplot() +
+           labs(title = "Box plot of " ~ x ~ " by " ~ y,
+                x = y, y = x) +
+           theme_minimal()
+    return(plot)
+}
