@@ -30,3 +30,7 @@ plot = plot_titanic_alluvial(
                 "Stratified by demographics and survival")
 )
 print(plot)
+
+# Visualize numeric variables (vi)
+plot = box_plot(titanic, "Fare", "Survived")
+print(plot)
