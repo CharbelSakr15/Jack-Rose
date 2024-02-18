@@ -3,7 +3,6 @@
 
 library(ggplot2)
 library(ggalluvial)
-library(GGally)
 source("utils.R")
 
 # Task 2.a.i:
@@ -355,45 +354,6 @@ plot_titanic_alluvial = function(df, factors, title = NULL) {
 
 # Task 2.a.vi:
 # further functions suitable for description and visualization
-
-# This function computes the correlation matrix for a data frame
-correlation_matrix = function(df) {
-    # Check if df is a data frame
-    if (!is.data.frame(df)) {
-        stop("The input must be a data frame")
-    }
-    # Check if df contains any numerical variables
-    if (length(Filter(is.numeric, df)) == 0) {
-        stop("The data frame does not contain any numerical variables")
-    }
-
-    # Select only the numerical variables
-    num_vars = Filter(is.numeric, df)
-    
-    # Compute the correlation matrix
-    cor_matrix = cor(num_vars, use = "pairwise.complete.obs")
-    return(cor_matrix)
-}
-
-# This function creates a scatter plot matrix for a data frame
-scatter_plot_matrix = function(df) {
-    # Check if df is a data frame
-    if (!is.data.frame(df)) {
-        stop("The input must be a data frame")
-    }
-    # Check if df contains any numerical variables
-    if (length(Filter(is.numeric, df)) == 0) {
-        stop("The data frame does not contain any numerical variables")
-    }
-
-    # Select only the numerical variables
-    num_vars = Filter(is.numeric, df)
-    
-    # Create the scatter plot matrix
-    plot = ggpairs(df, columns = num_vars)
-    return(plot)
-}
-
 # This function creates a box plot for a numerical variable, grouped by a
 # categorical variable
 box_plot = function(df, factor1, factor2) {
