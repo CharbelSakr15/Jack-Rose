@@ -78,7 +78,7 @@ describe_categoricals = function(df) {
             counts, frequencies, nac, 
             row.names = levels(x)
         )
-        colnames(stats) = c("Count", "Frequency", "NA")
+        colnames(stats) = c("Count", "Freq", "NA")
 
         return(stats)
     })
@@ -151,8 +151,8 @@ contingency_coefficient = function(x, y, correct = TRUE) {
 #   The point-biserial correlation coefficient
 point_biserial_correlation = function(x, y, bias = TRUE) {
     # Sanity checks
-    is_dichotomous(y)
-    is_numeric(x)
+    is_dichotomous(x)
+    is_numeric(y)
     have_same_length(x, y)
 
     # Drop missing values
@@ -170,9 +170,9 @@ point_biserial_correlation = function(x, y, bias = TRUE) {
     n  = n0 + n1
 
     # Compute means and standard deviations
-    M0 = mean(x[mask0], na.rm = TRUE)
-    M1 = mean(x[mask1], na.rm = TRUE)
-    sn = sqrt(1 / (n - bias) * sum((x - mean(x))^2))
+    M0 = mean(y[mask0], na.rm = TRUE)
+    M1 = mean(y[mask1], na.rm = TRUE)
+    sn = sqrt(1 / (n - bias) * sum((y - mean(x))^2))
 
     # Compute the point-biserial correlation coefficient
     rpb = (M1 - M0) / sn * sqrt(n0 * n1 / n^2)
