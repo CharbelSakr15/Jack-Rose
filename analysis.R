@@ -88,6 +88,7 @@ describe_categoricals = function(df) {
 }
 
 # Task 2.a.iii:
+
 # categorical variables.
 #
 # Parameters:
@@ -137,6 +138,7 @@ contingency_coefficient = function(x, y, correct = TRUE) {
 }
 
 # Task 2.a.iv:
+#
 # binary variable and a continuous variable.
 #
 # Parameters:
