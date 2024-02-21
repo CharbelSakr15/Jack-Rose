@@ -88,7 +88,6 @@ describe_categoricals = function(df) {
 }
 
 # Task 2.a.iii:
-# This function computes the Pearson contingency coefficient for two 
 # categorical variables.
 #
 # Parameters:
@@ -138,7 +137,6 @@ contingency_coefficient = function(x, y, correct = TRUE) {
 }
 
 # Task 2.a.iv:
-# This function computes the point-biserial correlation coefficient between a
 # binary variable and a continuous variable.
 #
 # Parameters:
