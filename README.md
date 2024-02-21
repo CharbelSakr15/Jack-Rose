@@ -1,14 +1,11 @@
 # Jack-Rose
 
-This repository hosts an university assignment meant to familiarize students
-with the version control tool Git.
+This repository hosts an university assignment meant to familiarize students with the version control tool Git.
 
-The assignment consists of processing and analyzing the famous **Titanic** 
-dataset using R.
-There are 3 major blocks to the assignment manifesting in 2 scripts:
-- "preprocess_data.R" - cleans the data, conducts feature encoding and engineering
-- "analyze_data.R" - analyzes the data, visualizes results
+The assignment consists of processing and analyzing the famous Titanic dataset using R. There are 3 major blocks to the assignment manifesting in 2 scripts:
 
+• "preprocess_data.R" - cleans the data, conducts feature encoding and engineering
+• "analyze_data.R" - analyzes the data, visualizes results
 and 2 modules consisting of functions used by the scripts:
 - "Funktionen-R-Skript 1.R" - analysis and visualization functions
 - "Funktionen-R-Skript 2.R" - various miscellaneous functions 

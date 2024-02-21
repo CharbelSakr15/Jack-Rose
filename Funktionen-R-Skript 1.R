@@ -1,9 +1,8 @@
 ### This file contains functions to analyze the Titanic dataset, following a 
 ### specific set of tasks provided in an university assignment.
 
-library(ggplot2)
-library(ggalluvial)
 source("utils.R")
+
 
 # Task 2.a.i:
 # This function computes descriptive statistics for numerical variables in a
@@ -89,7 +88,7 @@ describe_categoricals = function(df) {
 }
 
 # Task 2.a.iii:
-# This function computes the Pearson contingency coefficient for two 
+
 # categorical variables.
 #
 # Parameters:
@@ -139,7 +138,7 @@ contingency_coefficient = function(x, y, correct = TRUE) {
 }
 
 # Task 2.a.iv:
-# This function computes the point-biserial correlation coefficient between a
+#
 # binary variable and a continuous variable.
 #
 # Parameters:
@@ -162,8 +161,8 @@ point_biserial_correlation = function(x, y, bias = TRUE) {
     y = y[complete]
 
     # Mask the binary variable
-    mask0 = x == levels(x)[1]
-    mask1 = x == levels(x)[2]
+    mask0 = y == levels(y)[1]
+    mask1 = y == levels(y)[2]
 
     # Compute the number of observations
     n0 = sum(mask0)
@@ -173,7 +172,7 @@ point_biserial_correlation = function(x, y, bias = TRUE) {
     # Compute means and standard deviations
     M0 = mean(y[mask0], na.rm = TRUE)
     M1 = mean(y[mask1], na.rm = TRUE)
-    sn = sqrt(1 / (n - bias) * sum((y - mean(y))^2))
+    sn = sqrt(1 / (n - bias) * sum((y - mean(x))^2))
 
     # Compute the point-biserial correlation coefficient
     rpb = (M1 - M0) / sn * sqrt(n0 * n1 / n^2)
@@ -352,6 +351,7 @@ plot_titanic_alluvial = function(df, factors, title = NULL) {
     return(plot)
 }
 
+
 # Task 2.a.vi:
 # further functions suitable for description and visualization
 # This function creates a box plot for a numerical variable, grouped by a
@@ -379,3 +379,4 @@ box_plot = function(df, factor1, factor2) {
            theme_minimal()
     return(plot)
 }
+
