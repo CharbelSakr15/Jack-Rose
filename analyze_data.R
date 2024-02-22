@@ -1,6 +1,6 @@
 ### This script brings together all the tasks from the assignment.
 
-source("analysis.R")
+source("Funktionen-R-Skript 1.R")
 
 # Load the dataset
 factors = c("Survived", "Sex", "Embarked")
@@ -31,6 +31,6 @@ plot = plot_titanic_alluvial(
 )
 print(plot)
 
-# Visualize numeric variables (vi)
+Visualize numeric variables (vi)
 plot = box_plot(titanic, "Fare", "Survived")
 print(plot)
