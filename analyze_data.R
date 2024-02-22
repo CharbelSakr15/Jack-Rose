@@ -31,6 +31,6 @@ plot = plot_titanic_alluvial(
 )
 print(plot)
 
-Visualize numeric variables (vi)
+# Visualize numeric variables (vi)
 plot = box_plot(titanic, "Fare", "Survived")
 print(plot)
