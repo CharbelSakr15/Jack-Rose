@@ -17,7 +17,7 @@ source("utils.R")
 #   Mean, Median, Standard deviation, Minimum, Maximum, NA count
 describe_numerics = function(df) {
     # Check if df is a data frame
-    if (!is.data.frame(df)) {
+    if (!is.data.frame(df)) {  
         stop("The input must be a data frame")
     }
     # Check if df contains any numerical variables
