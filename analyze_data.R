@@ -1,4 +1,6 @@
 ### This script brings together all the tasks from the assignment.
+library(ggplot2)
+library(ggalluvial)
 
 source("Funktionen-R-Skript 1.R")
 
