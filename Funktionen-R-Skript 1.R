@@ -1,7 +1,7 @@
 ### This file contains functions to analyze the Titanic dataset, following a 
 ### specific set of tasks provided in an university assignment.
 
-source("utils.R")
+source("Funktionen-R-Skript 2.R")
 
 
 # Task 2.a.i:
