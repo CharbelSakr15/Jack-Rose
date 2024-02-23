@@ -15,9 +15,13 @@ print(describe_categoricals(titanic))
 
 # Compute bivariate statistics for two categorical variables (iii)
 print(contingency_coefficient(titanic$Survived, titanic$Sex))
+print(contingency_coefficient(titanic$Survived, titanic$Pclass))
+
 
 # Compute bivariate statistics for a binary and a numeric variable (iv)
 print(point_biserial_correlation(titanic$Survived, titanic$Age))
+print(point_biserial_correlation(titanic$Survived, titanic$Fare))
+
 
 # Visualize categorical variables (v)
 factors = c("Pclass", "Sex", "Age")
