@@ -160,9 +160,10 @@ point_biserial_correlation = function(x, y, bias = TRUE) {
     x = x[complete]
     y = y[complete]
 
+
     # Mask the binary variable
-    mask0 = y == levels(y)[1]
-    mask1 = y == levels(y)[2]
+    mask0 = x == levels(x)[1]
+    mask1 = x == levels(x)[2]
 
     # Compute the number of observations
     n0 = sum(mask0)
@@ -172,13 +173,14 @@ point_biserial_correlation = function(x, y, bias = TRUE) {
     # Compute means and standard deviations
     M0 = mean(y[mask0], na.rm = TRUE)
     M1 = mean(y[mask1], na.rm = TRUE)
-    sn = sqrt(1 / (n - bias) * sum((y - mean(x))^2))
+    sn = sqrt(1 / (n - bias) * sum((y - mean(y, na.rm = TRUE))^2))
 
     # Compute the point-biserial correlation coefficient
     rpb = (M1 - M0) / sn * sqrt(n0 * n1 / n^2)
 
     return(rpb)
 }
+
 
 # Task 2.a.v:
 # This function creates a suitable visualization of three or four categorical
