@@ -1,6 +1,4 @@
 ### This script brings together all the tasks from the assignment.
-library(ggplot2)
-library(ggalluvial)
 
 source("Funktionen-R-Skript 1.R")
 
@@ -19,11 +17,9 @@ print(describe_categoricals(titanic))
 print(contingency_coefficient(titanic$Survived, titanic$Sex))
 print(contingency_coefficient(titanic$Survived, titanic$Pclass))
 
-
 # Compute bivariate statistics for a binary and a numeric variable (iv)
 print(point_biserial_correlation(titanic$Survived, titanic$Age))
 print(point_biserial_correlation(titanic$Survived, titanic$Fare))
-
 
 # Visualize categorical variables (v)
 factors = c("Pclass", "Sex", "Age")

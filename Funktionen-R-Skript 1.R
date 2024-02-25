@@ -1,6 +1,8 @@
 ### This file contains functions to analyze the Titanic dataset, following a 
 ### specific set of tasks provided in an university assignment.
 
+library(ggplot2)
+library(ggalluvial)
 source("Funktionen-R-Skript 2.R")
 
 
@@ -181,63 +183,7 @@ point_biserial_correlation = function(x, y, bias = TRUE) {
     return(rpb)
 }
 
-
 # Task 2.a.v:
-# This function creates a suitable visualization of three or four categorical
-# variables.
-
-# Parameters:
-#   df: data frame
-#      The data frame containing the variables to be visualized
-#   x: factor
-#      The first categorical variable
-#   y: factor
-#      The second categorical variable
-#   z: factor
-#      The third categorical variable
-#   w: factor
-#      The fourth categorical variable
-
-# Returns:
-#   A ggplot object containing the visualization
-visualize_categoricals = function(df, x, y, z = NULL, w = NULL) {
-    # Sanity checks
-    is_factor(x)
-    is_factor(y)
-    if (!is.null(z)) {
-        is_factor(z)
-    }
-    if (!is.null(w)) {
-        is_factor(w)
-    }
-
-    # Create the visualization
-    if (is.null(z) && is.null(w)) {
-        plot = ggplot(df, aes(x = x, fill = y)) +
-               geom_bar(position = "dodge") +
-               labs(title = "Bar plot of " ~ x ~ " and " ~ y,
-                    x = x, y = "Count") +
-               theme_minimal()
-    } else if (!is.null(z) && is.null(w)) {
-        plot = ggplot(df, aes(x = x, fill = y)) +
-               geom_bar(position = "dodge") +
-               facet_wrap(~ z) +
-               labs(title = "Bar plot of " ~ x ~ " and " ~ y,
-                    x = x, y = "Count") +
-               theme_minimal()
-    } else if (!is.null(z) && !is.null(w)) {
-        plot = ggplot(df, aes(x = x, fill = y)) +
-               geom_bar(position = "dodge") +
-               facet_grid(z ~ w) +
-               labs(title = "Bar plot of " ~ x ~ " and " ~ y,
-                    x = x, y = "Count") +
-               theme_minimal()
-    }
-
-    return(plot)
-}
-
-
 # This function creates a factorized frequency table for the titanic data frame.
 # It only retains the variables: 'Pclass', 'Sex', 'Age', and 'Survived'.
 # The function returns a data frame with the frequency of each combination of
@@ -352,7 +298,6 @@ plot_titanic_alluvial = function(df, factors, title = NULL) {
 
     return(plot)
 }
-
 
 # Task 2.a.vi:
 # further functions suitable for description and visualization
